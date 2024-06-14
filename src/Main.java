@@ -14,6 +14,15 @@ public class Main {
         verificaElementoPresente(city, "catania");
         verificaElementoPresente(city1,"verona");
 
+        //richiamo funzione alla quale passa un elemeto da rimuovere dalla lista
+        cancellaElemento(city,"roma");
+
+        city.clear();
+        stampaHasSet(city);
+
+
+
+
 
 
     }
@@ -29,6 +38,16 @@ public class Main {
 
         return citta;
 
+    }
+
+    private static void stampaHasSet(HashSet<String> citta){
+        if(citta.size()>0) {
+            for (String stampa : citta) {
+                System.out.println(stampa);
+            }
+        }else {
+            System.out.println("HasSet vuoto");
+        }
     }
 
     //funzione che crea un arraylist con la copia degli elementi di un hashset
@@ -70,5 +89,15 @@ public class Main {
             System.out.println("l'elemento non è presente");
         }
 
+    }
+    private static void cancellaElemento(Set<String> citta, String elemento){
+
+        Iterator<String> iterator = citta.iterator();
+        while (iterator.hasNext()){
+            String element = iterator.next();
+            if(element == elemento){
+                iterator.remove();
+            }
+        }
     }
 }
